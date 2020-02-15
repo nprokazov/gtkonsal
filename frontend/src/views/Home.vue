@@ -22,10 +22,9 @@
                     <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">Вход в систему ГТК</h3>
 
                     <!-- Name -->
-                    <input type="username" id="defaultSubscriptionFormPassword" v-model="username" class="form-control mb-4" placeholder="Имя пользователя">
+                    <mdb-input label="Имя пользователя" v-model="username"  />
 
-                    <!-- Email -->
-                    <input type="password" id="defaultSubscriptionFormEmail" v-model="password" class="form-control" placeholder="Пароль">
+                    <mdb-input type="password" label="Пароль" v-model="password" />
 
                     <div class="text-center">
                       <button @click="enter" type="button" class="btn btn-outline-orange btn-rounded my-4 waves-effect">Войти</button>
@@ -66,8 +65,31 @@
     },
     methods : {
       enter() {
-        alert(this.username + " " + this.password);
-        router.push("/customers")
+        let data = {
+          'grant_type': 'password',
+          'username': this.username,
+          'password': this.password
+        };
+
+        let authOptions = {
+          method: 'POST',
+          url: '/oauth/token',
+          data: new URLSearchParams(data).toString(),
+          headers: {
+            'Authorization': 'Basic dGVzdGp3dGNsaWVudGlkOlhZN2ttem9OemwxMDA=',
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        };
+        let that = this;
+        this.$http(authOptions)
+                .then(function(response) {
+                    that.$http.defaults.headers.common['Authorization'] =
+                            'Bearer ' + response.data.access_token;
+                    router.push("/customers");
+                }).catch(function (response) {
+                  console.log("error", response)
+                })
+
       }
     }
   }

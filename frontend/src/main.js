@@ -5,10 +5,19 @@ import 'mdbvue/lib/css/mdb.min.css'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import Axios from 'axios'
+
+import * as mdbvue from 'mdbvue'
+
+Vue.component("mdbInput", mdbvue["mdbInput"])
+
 
 // import store from './store'
 
-Vue.config.productionTip = false
+Axios.defaults.baseURL = 'http://localhost:9000';
+
+Vue.prototype.$http = Axios;
+Vue.config.productionTip = false;
 
 new Vue({
   el: '#app',
