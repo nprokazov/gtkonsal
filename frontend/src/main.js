@@ -9,8 +9,11 @@ import Axios from 'axios'
 
 import * as mdbvue from 'mdbvue'
 
-Vue.component("mdbInput", mdbvue["mdbInput"])
+//Vue.component("mdbInput", mdbvue["mdbInput"])
 
+for (const component in mdbvue) {
+ Vue.component(component, mdbvue[component])
+}
 
 // import store from './store'
 

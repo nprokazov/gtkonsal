@@ -85,7 +85,7 @@
                 .then(function(response) {
                     that.$http.defaults.headers.common['Authorization'] =
                             'Bearer ' + response.data.access_token;
-                    router.push("/customers");
+                    router.push("/custom");
                 }).catch(function (response) {
                   console.log("error", response)
                 })
