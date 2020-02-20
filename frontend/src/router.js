@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Customers from "./views/Customers";
+import Index from "./views/Index";
+import CustomerList from "./views/customers/CustomerList";
+import CustomerEdit from "./views/customers/CustomerEdit";
 import Custom from "./views/Custom";
+import CustomerSideBar from "./views/components/CustomerSideBar";
 
 Vue.use(Router);
 
@@ -14,9 +17,27 @@ export default new Router({
       component: Home
     },
     {
-      path: '/customers',
-      name: 'customers',
-      component: Customers
+      path: '/index',
+      components: {
+        default: Index
+      },
+      children: [
+        {
+          path: '/customers',
+          components:{
+            default: CustomerList,
+            sidebar: CustomerSideBar
+          }
+
+        },
+        {
+          path: '/customers/edit',
+          components: {
+            default: CustomerEdit,
+            sidebar: CustomerSideBar
+          }
+        }
+      ]
     },
     {
       path: '/custom',

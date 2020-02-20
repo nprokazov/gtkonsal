@@ -1,96 +1,104 @@
 <template>
-  <div class="home">
-    <div class="container my-5 px-0 z-depth-1">
+    <div class="container my-5 py-5 z-depth-1">
 
-      <!--Section: Content-->
-      <section class="p-5 my-md-5 text-center"
-               style="background-image: url(https://mdbootstrap.com/img/Photos/Others/background.jpg); background-size: cover; background-position: center center;">
 
-        <form class="my-5 mx-md-5" action="">
+        <!--Section: Content-->
+        <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
 
-          <div class="row">
-            <div class="col-md-6 mx-auto">
-              <!-- Material form login -->
-              <div class="card">
 
-                <!--Card content-->
-                <div class="card-body">
+            <!--Grid row-->
+            <div class="row d-flex justify-content-center">
 
-                  <!-- Form -->
-                  <form class="text-center" style="color: #757575;" action="#!">
+                <!--Grid column-->
+                <div class="col-md-6">
 
-                    <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">Вход в систему ГТК</h3>
+                    <!-- Default form login -->
+                    <form class="text-center" action="#">
 
-                    <!-- Name -->
-                    <mdb-input label="Имя пользователя" v-model="username"  />
+                        <p class="h4 mb-4">Вход в GTK Base</p>
 
-                    <mdb-input type="password" label="Пароль" v-model="password" />
+                        <!-- Email -->
+                        <input v-model="username" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Имя пользователя">
 
-                    <div class="text-center">
-                      <button @click="enter" type="button" class="btn btn-outline-orange btn-rounded my-4 waves-effect">Войти</button>
-                    </div>
+                        <!-- Password -->
+                        <input v-model="password" type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Пароль">
 
-                  </form>
-                  <!-- Form -->
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <!-- Remember me -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                                    <label class="custom-control-label" for="defaultLoginFormRemember">Запомнить меня</label>
+                                </div>
+                            </div>
+                            <div>
+                                <!-- Forgot password -->
+                                <a href="">Забыли пароль?</a>
+                            </div>
+                        </div>
+
+                        <!-- Sign in button -->
+                        <button class="btn btn-info btn-block my-4" @click="enter">Войти</button>
+
+                    </form>
+                    <!-- Default form login -->
 
                 </div>
+                <!--Grid column-->
 
-              </div>
-              <!-- Material form login -->
             </div>
-          </div>
+            <!--Grid row-->
 
-        </form>
 
-      </section>
-      <!--Section: Content-->
+        </section>
+        <!--Section: Content-->
+
 
     </div>
-
-
-  </div>
 </template>
-
 <script>
-  import router from "../router";
+    //import router from "../router";
 
-  export default {
-    name: 'home',
-    // app initial state
-    data: function() {
-      return {
-        username:"",
-        password:""
-      }
-    },
-    methods : {
-      enter() {
-        let data = {
-          'grant_type': 'password',
-          'username': this.username,
-          'password': this.password
-        };
+    import router from "../router";
 
-        let authOptions = {
-          method: 'POST',
-          url: '/oauth/token',
-          data: new URLSearchParams(data).toString(),
-          headers: {
-            'Authorization': 'Basic dGVzdGp3dGNsaWVudGlkOlhZN2ttem9OemwxMDA=',
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        };
-        let that = this;
-        this.$http(authOptions)
-                .then(function(response) {
-                    that.$http.defaults.headers.common['Authorization'] =
-                            'Bearer ' + response.data.access_token;
-                    router.push("/custom");
-                }).catch(function (response) {
-                  console.log("error", response)
-                })
-
-      }
+    export default {
+        name: 'home2',
+        // app initial state
+        data: function() {
+            return {
+                username:"",
+                password:""
+            }
+        },
+        methods : {
+            enter() {
+                // let data = {
+                //     'grant_type': 'password',
+                //     'username': this.username,
+                //     'password': this.password
+                // };
+                //
+                // let authOptions = {
+                //     method: 'POST',
+                //     url: '/oauth/token',
+                //     data: new URLSearchParams(data).toString(),
+                //     headers: {
+                //         'Authorization': 'Basic dGVzdGp3dGNsaWVudGlkOlhZN2ttem9OemwxMDA=',
+                //         'Content-Type': 'application/x-www-form-urlencoded'
+                //     }
+                // };
+                // let that = this;
+                // // this.$http(authOptions)
+                // //     .then(function(response) {
+                // //         that.$http.defaults.headers.common['Authorization'] =
+                // //             'Bearer ' + response.data.access_token;
+                // //
+                // //     }).catch(function (response) {
+                // //     console.log("error", response)
+                // //
+                // // });
+                router.push("/customers");
+            }
+        }
     }
-  }
 </script>
