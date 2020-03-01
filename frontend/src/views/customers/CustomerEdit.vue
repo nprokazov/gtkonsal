@@ -4,8 +4,8 @@
         <input class="form-control" id="customer_name" type="text" placeholder="Наименование клиента">
         <input class="form-control" id="customer_cargo" type="text" placeholder="Перевозимый груз">
         <input class="form-control" id="customer_email" type="email" placeholder="E-mail">
-        <input class="form-control" id="customer_Phone" type="tel"  placeholder="Номер телефона" >
-        <input class="form-control" id="customer_Notes" type="text"  placeholder="Примечания" >
+        <input class="form-control" id="customer_phone" type="tel"  placeholder="Номер телефона" >
+        <input class="form-control" id="customer_notes" type="text"  placeholder="Примечания" >
         <mdb-btn @click="save" color="primary">Добавить</mdb-btn>
     </section>
 </template>
