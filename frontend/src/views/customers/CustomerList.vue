@@ -72,7 +72,6 @@
             this.$http(authOptions)
                 .then(function(response) {
                     for(let index in response.data) {
-                        console.log(response.data[index]);
                         customerData.data.rows.push(response.data[index]);
                     }
                 }).catch(function (response) {

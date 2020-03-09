@@ -10,32 +10,32 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.ZonedDateTime;
 
-@Table(name = "orders")
 @Entity
 @Data
+@Table(name = "orders")
 public class OrderEntity {
     @Id
     private Integer id;
     @ManyToOne
-    @JoinColumn (name = "country_from")
+    @JoinColumn(name = "country_from")
     private CountryEntity countryFrom;
-    @Column (name = "place_from")
+    @Column(name = "place_from")
     private String placeFrom;
-    @Column (name = "date_from")
+    @Column(name = "date_from")
     private ZonedDateTime DateFrom;
     @ManyToOne
-    @JoinColumn (name = "country_to")
+    @JoinColumn(name = "country_to")
     private CountryEntity countryTo;
-    @Column (name = "place_to")
+    @Column(name = "place_to")
     private String placeTo;
     @ManyToOne
-    @JoinColumn (name = "customer")
+    @JoinColumn(name = "customer")
     private CustomerEntity customer;
     @ManyToOne
-    @JoinColumn (name = "logistic_customer")
+    @JoinColumn(name = "logistic_customer")
     private CustomerEntity logisticCustomer;
-    @Column (name = "date_to")
+    @Column(name = "date_to")
     private ZonedDateTime dateTo;
-    @Column (name = "date_order")
+    @Column(name = "date_order")
     private ZonedDateTime dateOrder;
 }

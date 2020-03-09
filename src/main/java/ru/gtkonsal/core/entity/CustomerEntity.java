@@ -7,9 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name = "customers")
-@Entity
 @Data
+@Entity
+@Table(name = "customers")
 public class CustomerEntity {
     @Id
     private Integer id;

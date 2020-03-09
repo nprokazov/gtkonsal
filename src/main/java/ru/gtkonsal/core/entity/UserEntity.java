@@ -1,16 +1,20 @@
 package ru.gtkonsal.core.entity;
 
 import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.util.Set;
 
-@Table(name="users")
+
 @Entity
 @Data
+@Table(name = "users")
 public class UserEntity {
     @Id
     private Integer id;
@@ -18,13 +22,13 @@ public class UserEntity {
     private String password;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_authorities",
-            joinColumns = { @JoinColumn(name = "user_id") },
-            inverseJoinColumns = { @JoinColumn(name = "authority") })
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "authority")})
     private Set<AuthorityEntity> authorities;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "group_members",
-            joinColumns = { @JoinColumn(name = "user_id") },
-            inverseJoinColumns = { @JoinColumn(name = "group_id") })
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "group_id")})
     private Set<GroupEntity> groups;
 }

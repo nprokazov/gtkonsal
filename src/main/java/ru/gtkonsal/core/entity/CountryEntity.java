@@ -7,13 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name = "countries")
-@Entity
 @Data
+@Entity
+@Table(name = "countries")
 public class CountryEntity {
     @Id
     private String code;
-    @Column (name = "country_name")
+    @Column(name = "country_name")
     private String countryName;
 }
 

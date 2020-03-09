@@ -6,9 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name="authorities")
-@Entity
+
 @Data
+@Entity
+@Table(name = "authorities")
 public class AuthorityEntity {
     @Id
     private String authority;
