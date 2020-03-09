@@ -1,7 +1,7 @@
 create table countries
 (
-code varchar(3) primary key,
-country_name varchar (255)
+    code varchar(3) primary key,
+    country_name varchar (255)
 );
 INSERT INTO countries ("code","country_name") values ('ABH','Абхазия');
 INSERT INTO countries ("code","country_name") values ('ABW','Аруба');

@@ -31,7 +31,7 @@ export default new Router({
 
         },
         {
-          path: '/customers/edit',
+          path: '/customers/edit/:id',
           components: {
             default: CustomerEdit,
             sidebar: CustomerSideBar

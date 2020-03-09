@@ -1,5 +1,6 @@
 package ru.gtkonsal;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -34,6 +35,17 @@ public class GTKApplication {
 		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
 		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
 		return bean;
+	}
+
+	@Bean
+	public ModelMapper modelMapper() {
+		ModelMapper mapper = new ModelMapper();
+//		mapper.getConfiguration()
+//				.setMatchingStrategy(MatchingStrategies.STRICT)
+//				.setFieldMatchingEnabled(true)
+//				.setSkipNullEnabled(true)
+//				.setFieldAccessLevel(PRIVATE);
+		return mapper;
 	}
 
 }

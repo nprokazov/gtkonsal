@@ -39,6 +39,8 @@ dependencies {
 	implementation 'org.springframework.security.oauth:spring-security-oauth2:2.1.0.RELEASE' // реализует структуры OAUTH2 для работы сервера авторизации и сервера ресурсов.
 	implementation 'de.codecentric:spring-boot-admin-starter-server'
 	implementation 'org.springframework.session:spring-session-core'
+	implementation 'org.modelmapper:modelmapper:2.3.5'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
