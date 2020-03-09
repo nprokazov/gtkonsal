@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.gtkonsal.core.domain.Customer;
 import ru.gtkonsal.core.entity.CustomerEntity;
+import ru.gtkonsal.core.mapper.CustomerEntityMapper;
 import ru.gtkonsal.core.repository.CustomerRepository;
 
 import java.util.ArrayList;
@@ -17,18 +18,15 @@ import java.util.Optional;
 @RequestMapping("/customers")
 public class CustomerController {
     private final CustomerRepository customerRepository;
+    private CustomerEntityMapper customerEntityMapper;
 
-    public CustomerController(CustomerRepository customerRepository) {
+    public CustomerController(CustomerRepository customerRepository, CustomerEntityMapper customerEntityMapper) {
         this.customerRepository = customerRepository;
+        this.customerEntityMapper = customerEntityMapper;
     }
 
     @RequestMapping("/list")
     public Iterable<CustomerEntity> list() {
-        CustomerEntity ob = new CustomerEntity();
-        ob.setCustomerName("valya");
-        ArrayList<CustomerEntity> customers = new ArrayList<>();
-        customers.add(ob);
-        customerRepository.findAll();
         return customerRepository.findAll();
     }
 

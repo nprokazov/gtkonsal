@@ -1,6 +1,6 @@
 <template>
     <section class="py-5 z-depth-1 px-md-5 dark-grey-text">
-        <p class="h4 mb-4">Новый клиент</p>
+        <p class="h4 mb-4">Новыя заявка</p>
         <input class="form-control" id="customer_name" placeholder="Наименование клиента" type="text"
                v-model="customer.name">
         <input class="form-control" id="customer_cargo" placeholder="Перевозимый груз" type="text"
@@ -18,7 +18,7 @@
 
     export default {
         data: function () {
-            let editingCustomer = {
+            let editingOrder = {
                 id: 0,
                 name: "",
                 cargo: "",
@@ -27,14 +27,14 @@
                 notes: ""
             };
 
-            this.$http.get(`/customers/get/${this.$route.params.id}`, function (response) {
+            this.$http.get(`/orders/get/${this.$route.params.id}`, function (response) {
                 if (response.data) {
-                    editingCustomer = response.data;
+                    editingOrder = response.data;
                 }
             });
 
             return {
-                customer: editingCustomer
+                order: editingOrder
             }
         },
         methods: {
@@ -42,18 +42,18 @@
 
                 console.log(this.customer.id);
                 if (this.customer.id) {
-                    this.$http.put('/customers/update', this.customer).then(function (response) {
+                    this.$http.put('/orders/update', this.customer).then(function (response) {
                         console.log(response);
                         console.log("PUT OK");
-                        router.push("/customers");
+                        router.push("/orders");
                     }).catch(function () {
 
                     });
                 } else {
-                    this.$http.post('/customers/create', this.customer).then(function (response) {
+                    this.$http.post('/orders/create', this.customer).then(function (response) {
                         console.log(response);
                         console.log("POST OK");
-                        router.push("/customers");
+                        router.push("/orders");
                     }).catch(function () {
 
                     });
