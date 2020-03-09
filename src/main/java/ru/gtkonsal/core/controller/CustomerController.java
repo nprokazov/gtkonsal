@@ -11,7 +11,6 @@ import ru.gtkonsal.core.entity.CustomerEntity;
 import ru.gtkonsal.core.mapper.CustomerEntityMapper;
 import ru.gtkonsal.core.repository.CustomerRepository;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
@@ -31,26 +30,22 @@ public class CustomerController {
     }
 
     @PostMapping("/create")
-    public String create(Customer customer) {
-        CustomerEntity ob = new CustomerEntity();
-        ob.setId(1);
-        ob.setCustomerName("valya");
-        customerRepository.save(ob);
-        return "1";
+    public Customer create(final Customer customer) {
+        final CustomerEntity entity = customerEntityMapper.toEntity(customer);
+        customerRepository.save(entity);
+        return customer;
     }
 
     @PutMapping("/update")
-    public String update(Customer customer) {
-        CustomerEntity ob = new CustomerEntity();
-        ob.setId(1);
-        ob.setCustomerName("valya");
-        customerRepository.save(ob);
-        return "1";
+    public Customer update(Customer customer) {
+        final CustomerEntity entity = customerEntityMapper.toEntity(customer);
+        customerRepository.save(entity);
+        return customer;
     }
 
     @GetMapping("/get/{id}")
-    public CustomerEntity get(@PathVariable Integer id) {
+    public Customer get(@PathVariable Integer id) {
         final Optional<CustomerEntity> customer = customerRepository.findById(id);
-        return customer.orElse(null);
+        return customerEntityMapper.toDto(customer.orElse(new CustomerEntity()));
     }
 }

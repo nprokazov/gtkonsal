@@ -24,7 +24,7 @@
         },
         methods: {
             addClick() {
-                router.push("/customers/edit");
+                router.push("/customers/create");
             }
         },
         data() {

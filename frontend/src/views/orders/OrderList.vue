@@ -1,6 +1,6 @@
 <template>
     <div>
-        <mdb-btn @click="addClick" color="primary">Внести клиента</mdb-btn>
+        <mdb-btn @click="addClick" color="primary">Внести заявку</mdb-btn>
         <div class="py-5 z-depth-1">
             <section class="px-md-5 mx-md-5 text-lg-left dark-grey-text">
                 <mdb-datatable
@@ -24,7 +24,7 @@
         },
         methods: {
             addClick() {
-                router.push("/orders/edit");
+                router.push("/orders/create");
             }
         },
         data() {

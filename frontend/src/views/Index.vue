@@ -5,9 +5,9 @@
             <mdb-navbar-brand href="" target="_blank">ГТК</mdb-navbar-brand>
             <mdb-navbar-toggler>
                 <mdb-navbar-nav left>
-                    <mdb-nav-item to="/index" waves-fixed active class="active">Данные</mdb-nav-item>
-                    <mdb-nav-item to="truck_movement" waves-fixed>Движение машин</mdb-nav-item>
-                    <mdb-nav-item to="/requests" waves-fixed>Заявки</mdb-nav-item>
+                    <mdb-nav-item :active="$route.fullPath === '/customers'" to="/customers" waves-fixed >Данные</mdb-nav-item>
+                    <mdb-nav-item :active="$route.fullPath === '/movement_truck'" to="/movement_truck" waves-fixed>Движение машин</mdb-nav-item>
+                    <mdb-nav-item :active="$route.fullPath === '/orders'" to="/orders" waves-fixed>Заявки</mdb-nav-item>
                 </mdb-navbar-nav>
             </mdb-navbar-toggler>
         </mdb-navbar>
@@ -25,7 +25,7 @@
                 <hr class="my4"/>
 
                 <p class="footer-copyright mb-0 py-3 text-center">
-                    &copy; {{new Date().getFullYear()}} Copyright: <a href="https://mdbootstrap.com/docs/vue/"> gtkonsal.com </a>
+                    &copy; {{new Date().getFullYear()}} Copyright: <a href="https://mdbootstrap.com/docs/vue/"> gtkonsal.ru </a>
                 </p>
             </ftr>
         </main>
