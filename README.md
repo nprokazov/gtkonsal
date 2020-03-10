@@ -16,6 +16,7 @@ ssh gkt@109.188.72.144
 cd ~/Base/gtkonsal/
 git pull
 gradle build
+gradle flywayMigrate
 cd ./frontend/
 yarn build
 docker restart 4f1ae18579d3

@@ -17,7 +17,7 @@ for (const component in mdbvue) {
 
 // import store from './store'
 
-Axios.defaults.baseURL = 'http://localhost:9000';
+Axios.defaults.baseURL = process.env.VUE_APP_SERVER_ENDPOINT;
 
 Vue.prototype.$http = Axios;
 Vue.config.productionTip = false;
