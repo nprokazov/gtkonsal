@@ -12,40 +12,46 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import java.util.Collections;
+import java.util.List;
 
 @SpringBootApplication
 @EnableResourceServer
 public class GTKApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GTKApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GTKApplication.class, args);
+    }
 
-	// Fix the CORS errors
-	@Bean
-	public FilterRegistrationBean<CorsFilter> simpleCorsFilter() {
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowCredentials(true);
-		// *** URL below needs to match the Vue client URL and port ***
-		config.setAllowedOrigins(Collections.singletonList("*"));
-		config.setAllowedMethods(Collections.singletonList("*"));
-		config.setAllowedHeaders(Collections.singletonList("*"));
-		source.registerCorsConfiguration("/**", config);
-		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
-		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
-		return bean;
-	}
+    // Fix the CORS errors
+    @Bean
+    public FilterRegistrationBean<CorsFilter> simpleCorsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        // *** URL below needs to match the Vue client URL and port ***
+        //config.setAllowedOrigins(Collections.singletonList("http://localhost:8080", "http://127.0.0.1:8080", "http://109.188.72.144:8080", "http://192.168.0.168:8080"));
+        config.setAllowedOrigins(List.of("http://localhost:8080",
+                "http://127.0.0.1:8080",
+                "http://109.188.72.144:8080",
+                "http://192.168.0.168:8080"));
 
-	@Bean
-	public ModelMapper modelMapper() {
-		ModelMapper mapper = new ModelMapper();
+        config.setAllowedMethods(Collections.singletonList("*"));
+        config.setAllowedHeaders(Collections.singletonList("*"));
+        source.registerCorsConfiguration("/**", config);
+        FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
+        bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        return bean;
+    }
+
+    @Bean
+    public ModelMapper modelMapper() {
+        ModelMapper mapper = new ModelMapper();
 //		mapper.getConfiguration()
 //				.setMatchingStrategy(MatchingStrategies.STRICT)
 //				.setFieldMatchingEnabled(true)
 //				.setSkipNullEnabled(true)
 //				.setFieldAccessLevel(PRIVATE);
-		return mapper;
-	}
+        return mapper;
+    }
 
 }
