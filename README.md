@@ -13,6 +13,14 @@ docker run --name some-postgres -e POSTGRES_PASSWORD=1 -d postgres
 
 ```sh
 ssh gkt@109.188.72.144
-cd ~/Base/gtkon sal/
+cd ~/Base/gtkonsal/
+git pull
+gradle build
+cd ./frontend/
+yarn build
+docker restart 4f1ae18579d3
+cd ..
+gradle bootRun &
+bg
 
 ```
