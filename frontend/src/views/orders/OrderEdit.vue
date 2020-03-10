@@ -1,14 +1,16 @@
+<!--suppress JSUnfilteredForInLoop, JSUnresolvedVariable -->
 <template>
     <section class="py-5 z-depth-1 px-md-5 dark-grey-text">
         <p class="h4 mb-4">Новыя заявка</p>
-        <input class="form-control" id="customer_name" placeholder="Наименование клиента" type="text"
-               v-model="order.name">
-        <input class="form-control" id="customer_cargo" placeholder="Перевозимый груз" type="text"
-               v-model="order.name">
-        <input class="form-control" id="customer_email" placeholder="E-mail" type="email" v-model="order.name">
-        <input class="form-control" id="customer_phone" placeholder="Номер телефона" type="tel"
-               v-model="order.name">
-        <input class="form-control" id="customer_notes" placeholder="Примечания" type="text" v-model="order.name">
+        <label>Отправитель</label>
+        <select ref="customer" v-model="order.customer">
+
+        </select>
+        <label>Перевозчик</label>
+        <select ref="logisticCustomer" v-model="order.logisticCustomer">
+
+        </select>
+
         <mdb-btn @click="save" color="primary">Добавить</mdb-btn>
     </section>
 </template>
@@ -18,13 +20,32 @@
 
     export default {
         data: function () {
+            let that = this;
+            let getCustomer = function () {
+                return that.$http.get("/customers/list").then(function (response) {
+                    return response.data;
+                });
+            };
+            getCustomer().then(
+                function (value) {
+                    for (let index in value) {
+                        let option = document.createElement("option");
+                        option.text = value[index].customerName;
+                        option.value = value[index].id;
+
+                        let option2 = document.createElement("option");
+                        option2.text = value[index].customerName;
+                        option2.value = value[index].id;
+                        that.$refs.customer.append(option2);
+                        that.$refs.logisticCustomer.append(option);
+                    }
+                }
+            );
+
             let editingOrder = {
                 id: 0,
-                name: "",
-                cargo: "",
-                email: "",
-                phone: "",
-                notes: ""
+                customer: "",
+                logisticCustomer: "",
             };
 
             if (this.$route.params.id !== undefined) {

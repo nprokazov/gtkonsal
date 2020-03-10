@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.gtkonsal.core.domain.Order;
@@ -14,7 +15,7 @@ import ru.gtkonsal.core.repository.OrderRepository;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/Order")
+@RequestMapping("/orders")
 public class OrderController {
 
     private final OrderRepository orderRepository;
@@ -30,15 +31,15 @@ public class OrderController {
         return orderRepository.findAll();
     }
 
-    @PostMapping("/create")
-    public Order create(final Order order) {
+    @PostMapping(value = "/create", consumes = "application/json")
+    public Order create(@RequestBody final Order order) {
         final OrderEntity entity = orderEntityMapper.toEntity(order);
         orderRepository.save(entity);
         return order;
     }
 
-    @PutMapping("/update")
-    public Order update(Order order) {
+    @PutMapping(value = "/update", consumes = "application/json")
+    public Order update(@RequestBody final Order order) {
         final OrderEntity entity = orderEntityMapper.toEntity(order);
         orderRepository.save(entity);
         return order;

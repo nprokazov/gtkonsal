@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.gtkonsal.core.domain.Customer;
@@ -29,15 +30,15 @@ public class CustomerController {
         return customerRepository.findAll();
     }
 
-    @PostMapping("/create")
-    public Customer create(final Customer customer) {
+    @PostMapping(value = "/create", consumes = "application/json")
+    public Customer create(@RequestBody final Customer customer) {
         final CustomerEntity entity = customerEntityMapper.toEntity(customer);
         customerRepository.save(entity);
         return customer;
     }
 
-    @PutMapping("/update")
-    public Customer update(Customer customer) {
+    @PutMapping(value = "/update", consumes = "application/json")
+    public Customer update(@RequestBody Customer customer) {
         final CustomerEntity entity = customerEntityMapper.toEntity(customer);
         customerRepository.save(entity);
         return customer;
