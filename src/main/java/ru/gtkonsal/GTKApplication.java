@@ -30,10 +30,13 @@ public class GTKApplication {
         config.setAllowCredentials(true);
         // *** URL below needs to match the Vue client URL and port ***
         //config.setAllowedOrigins(Collections.singletonList("http://localhost:8080", "http://127.0.0.1:8080", "http://109.188.72.144:8080", "http://192.168.0.168:8080"));
-        config.setAllowedOrigins(List.of("http://localhost:8080",
-                "http://127.0.0.1:8080",
-                "http://109.188.72.144:8080",
-                "http://192.168.0.168:8080"));
+//        config.setAllowedOrigins(List.of("http://localhost:8080",
+//                "http://127.0.0.1:8080",
+//                "http://109.188.72.144:8080",
+//                "http://192.168.0.168:8080"));
+
+
+        config.setAllowedOrigins(Collections.singletonList("*"));
 
         config.setAllowedMethods(Collections.singletonList("*"));
         config.setAllowedHeaders(Collections.singletonList("*"));
