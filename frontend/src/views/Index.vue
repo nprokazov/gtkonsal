@@ -8,6 +8,7 @@
                     <mdb-nav-item :active="$route.fullPath === '/customers'" to="/customers" waves-fixed >Данные</mdb-nav-item>
                     <mdb-nav-item :active="$route.fullPath === '/movement_truck'" to="/movement_truck" waves-fixed>Движение машин</mdb-nav-item>
                     <mdb-nav-item :active="$route.fullPath === '/orders'" to="/orders" waves-fixed>Заявки</mdb-nav-item>
+                    <mdb-nav-item :active="$route.fullPath === '/potential_clients'" to="/potential_clients" waves-fixed>Потенциальные клиенты</mdb-nav-item>
                 </mdb-navbar-nav>
             </mdb-navbar-toggler>
         </mdb-navbar>
