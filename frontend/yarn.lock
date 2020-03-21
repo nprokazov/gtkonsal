@@ -4954,6 +4954,16 @@ date-fns@^1.27.2:
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
   integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
 
+date-fns@^2.0.1:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.11.0.tgz#ec2b44977465b9dcb370021d5e6c019b19f36d06"
+  integrity sha512-8P1cDi8ebZyDxUyUprBXwidoEtiQAawYPGvpfb+Dg0G6JrQ+VozwOmm91xYC0vAv1+0VmLehEPb+isg4BGUFfA==
+
+date-format-parse@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/date-format-parse/-/date-format-parse-0.2.5.tgz#6acd7672058e59cb34c85e0d82c04bceeac9d652"
+  integrity sha512-PzvB3p9bTxrGQbz3ZlO/kxgXzKZhMo4l0OQfPqVYjuwixHRS9yHH6cUJI9JG2Hh6iUQgh17T7w95lzQ131dS/g==
+
 de-indent@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/de-indent/-/de-indent-1.0.2.tgz#b2038e846dc33baa5796128d0804b455b8c1e21d"
@@ -9381,10 +9391,10 @@ md5.js@^1.3.4:
     inherits "^2.0.1"
     safe-buffer "^5.1.2"
 
-mdbvue@^6.4.0:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/mdbvue/-/mdbvue-6.4.0.tgz#93affa086ee17d082b2adea152b02b5d5c61846c"
-  integrity sha512-aNWtNvck5SJR3lHtI9UflWWeKKaeydAAWsmEKbXPlJPBkrMWZCCQKaL+dX+NUvLpiacglyFgypHy9Za7T/jSrQ==
+mdbvue@^6.5.1:
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/mdbvue/-/mdbvue-6.5.1.tgz#37a8412321bceb694f4c76f991a4334e85c642f0"
+  integrity sha512-BpVBG5bdLgwbhA3vIkiOnyv/Wy+PmIg3iuDRmQF+zR5zGEvP8u4INPTc5lNRVAXn3I2Iyin4xM2hGDSR4Ionvw==
   dependencies:
     "@fortawesome/fontawesome-free" "^5.11.2"
     axios "^0.19.0"
@@ -13993,6 +14003,14 @@ vue-template-es2015-compiler@^1.6.0, vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
+
+vue2-datepicker@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/vue2-datepicker/-/vue2-datepicker-3.4.1.tgz#1a7456b44da54bbc0f43f26d0c7948faa1825766"
+  integrity sha512-gCPZAwIyPLeN1P3xDg/Oj/UyQTIqnoFFzXw+yfvmUDxL430u/rHq1/JqFSGISEhTvJJu0brgHHrop3A7VBW6rA==
+  dependencies:
+    date-fns "^2.0.1"
+    date-format-parse "^0.2.5"
 
 vue2-perfect-scrollbar@^1.2.1:
   version "1.3.0"

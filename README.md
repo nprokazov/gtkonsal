@@ -25,3 +25,14 @@ gradle bootRun &
 bg
 
 ```
+
+
+# Creation new domain
+
+1. Create SQL File.
+2. Create DTO.
+3. Create Entity.
+4. Create Controller.
+5. Create Edit form.
+6. Create List form.
+7. Create repository.

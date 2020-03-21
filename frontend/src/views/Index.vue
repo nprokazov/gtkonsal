@@ -26,7 +26,7 @@
                 <hr class="my4"/>
 
                 <p class="footer-copyright mb-0 py-3 text-center">
-                    &copy; {{new Date().getFullYear()}} Copyright: <a href="https://mdbootstrap.com/docs/vue/"> gtkonsal.ru </a>
+                    &copy; {{new Date().getFullYear()}} Copyright: <a href="http://gtkonsal.ru"> gtkonsal.ru </a>
                 </p>
             </ftr>
         </main>
