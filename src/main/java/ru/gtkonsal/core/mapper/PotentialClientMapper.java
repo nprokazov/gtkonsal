@@ -15,7 +15,7 @@ public class PotentialClientMapper extends AbstractMapper {
         dto.setContacts(entity.getContacts());
         dto.setCargo(entity.getCargo());
         try {
-            dto.setContactDate(SIMPLE_DATE.format(entity.getDateOfContact().getTime()));
+            dto.setContactDate(SIMPLE_DATE.format(entity.getContactDate().getTime()));
         } catch (Exception ignored) {
         }
         dto.setStep1(entity.getStep1());
@@ -35,7 +35,7 @@ public class PotentialClientMapper extends AbstractMapper {
         try {
             Calendar cal = Calendar.getInstance();
             cal.setTime(SIMPLE_DATE.parse(dto.getContactDate()));
-            entity.setDateOfContact(cal);
+            entity.setContactDate(cal);
         } catch (Exception ignored) {
         }
         entity.setStep1(dto.getStep1());

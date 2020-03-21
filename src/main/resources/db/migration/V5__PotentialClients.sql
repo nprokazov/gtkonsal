@@ -12,3 +12,12 @@ create table potential_clients
     reason          text
 );
 
+insert into potential_clients (    company_name,
+                                   contacts,
+                                   cargo,
+                                   date_of_contact,
+                                   step1,
+                                   step2,
+                                   step3,
+                                   stage,
+                                   reason) values('1','2','3','4','5','3',1,1,2);

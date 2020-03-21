@@ -22,7 +22,7 @@ public class PotentialClientEntity {
     private String contacts;
     private String cargo;
     @Column(name = "date_of_contact")
-    private Calendar dateOfContact;
+    private Calendar contactDate;
     private String step1;
     private String step2;
     private String step3;
