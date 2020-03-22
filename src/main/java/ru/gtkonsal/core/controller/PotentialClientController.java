@@ -41,7 +41,7 @@ public class PotentialClientController {
     }
 
     @GetMapping(value = "/list", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Page<PotentialClient> list(Pageable pageable) {
+    public Page<PotentialClient> list(final Pageable pageable) {
         final List<PotentialClient> result = new ArrayList<>();
         final Page<PotentialClientEntity> page = potentialClientRepository.findAll(pageable);
         for (final PotentialClientEntity entity : page.getContent()) {
@@ -51,7 +51,7 @@ public class PotentialClientController {
     }
 
     @GetMapping(value = "/get/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public PotentialClient get(@PathVariable Integer id) {
+    public PotentialClient get(@PathVariable final Integer id) {
         final Optional<PotentialClientEntity> optional = potentialClientRepository.findById(id);
         final PotentialClientEntity entity = optional.orElseThrow(ResourceNotFoundException::new);
         return potentialClientMapper.toDto(entity);
@@ -65,7 +65,7 @@ public class PotentialClientController {
     }
 
     @DeleteMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void update(@PathVariable Integer id) {
+    public void update(@PathVariable final Integer id) {
         if (potentialClientRepository.existsById(id)) {
             potentialClientRepository.deleteById(id);
         } else {
