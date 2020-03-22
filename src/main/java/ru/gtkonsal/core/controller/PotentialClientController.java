@@ -64,7 +64,7 @@ public class PotentialClientController {
         return potentialClient;
     }
 
-    @DeleteMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete/{id}")
     public void update(@PathVariable final Integer id) {
         if (potentialClientRepository.existsById(id)) {
             potentialClientRepository.deleteById(id);
