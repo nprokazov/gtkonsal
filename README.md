@@ -30,11 +30,11 @@ bg
 ```
 
 ## Creation new domain
-0. Create new SQL File in *src/main/resources/db/migration*.
-0. Create Entity in *src/main/java/ru/gtkonsal/core/entity*.
-0. Create DTO in *src/main/java/ru/gtkonsal/core/domain*.
-0. Create Mapper in *src/main/java/ru/gtkonsal/core/mapper*.
-0. Create Repository in *src/main/java/ru/gtkonsal/core/repository*.
-0. Create Controller in *src/main/java/ru/gtkonsal/core/controller*.
-0. Create Edit form in *frontend/src/views/{domain_name}*.
-0. Create List form in *frontend/src/views/{domain_name}*.
+1. Create new SQL File in *src/main/resources/db/migration*.
+1. Create Entity in *src/main/java/ru/gtkonsal/core/entity*.
+1. Create DTO in *src/main/java/ru/gtkonsal/core/domain*.
+1. Create Mapper in *src/main/java/ru/gtkonsal/core/mapper*.
+1. Create Repository in *src/main/java/ru/gtkonsal/core/repository*.
+1. Create Controller in *src/main/java/ru/gtkonsal/core/controller*.
+1. Create Edit form in *frontend/src/views/{domain_name}*.
+1. Create List form in *frontend/src/views/{domain_name}*.
