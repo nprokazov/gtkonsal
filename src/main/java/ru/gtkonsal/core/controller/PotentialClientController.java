@@ -5,6 +5,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -61,5 +62,14 @@ public class PotentialClientController {
         final PotentialClientEntity entity = potentialClientMapper.toEntity(potentialClient);
         potentialClientRepository.save(entity);
         return potentialClient;
+    }
+
+    @DeleteMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void update(@PathVariable Integer id) {
+        if (potentialClientRepository.existsById(id)) {
+            potentialClientRepository.deleteById(id);
+        } else {
+            throw new ResourceNotFoundException();
+        }
     }
 }

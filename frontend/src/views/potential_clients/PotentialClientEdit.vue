@@ -58,6 +58,7 @@
 
         </div>
         <mdb-btn @click="save" color="primary">Сохранить</mdb-btn>
+        <mdb-btn @click="del" color="primary">Удалить</mdb-btn>
     </section>
 </template>
 
@@ -121,27 +122,32 @@
             }
         },
         methods: {
+            del() {
+                this.$http.delete(`/potential_clients/delete/${this.potential_client.id}`).then(function (response) {
+                    console.log(response);
+                    router.push("/potential_clients");
+                }).catch(function (response) {
+                    console.log(response);
+                });
+            },
             save() {
                 if (this.potential_client.id) {
                     this.$http.put('/potential_clients/update', this.potential_client).then(function (response) {
                         console.log(response);
                         router.push("/potential_clients");
-                    }).catch(function () {
-
+                    }).catch(function (response) {
+                        console.log(response);
                     });
                 } else {
                     // TODO make validation.
                     this.$http.post('/potential_clients/create', this.potential_client).then(function (response) {
                         console.log(response);
                         router.push("/potential_clients");
-                    }).catch(function () {
-
+                    }).catch(function (response) {
+                        console.log(response);
                     });
                 }
             }
         }
     };
 </script>
-
-<style>
-</style>
